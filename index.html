@@ -6,20 +6,37 @@
   <title>Nimesh Timalsina | AI & IoT Engineer</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">NT</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Navbar -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#home" class="nav-logo">NT<span class="dot">.</span></a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
+      <a href="#home" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>NT<span class="logo-bracket">/&gt;</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" data-magnetic>About</a></li>
+        <li><a href="#experience" data-magnetic>Experience</a></li>
+        <li><a href="#projects" data-magnetic>Projects</a></li>
+        <li><a href="#skills" data-magnetic>Skills</a></li>
+        <li><a href="#contact" data-magnetic>Contact</a></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -29,72 +46,135 @@
 
   <!-- Hero -->
   <section class="hero" id="home">
-    <div class="hero-bg">
-      <canvas id="particles"></canvas>
+    <canvas id="particles" class="particles-canvas"></canvas>
+
+    <div class="aurora">
+      <div class="aurora-1"></div>
+      <div class="aurora-2"></div>
+      <div class="aurora-3"></div>
     </div>
+
+    <div class="floating-tags" aria-hidden="true">
+      <span style="--d:0s;--x:10%;--y:20%">IoT</span>
+      <span style="--d:1.5s;--x:80%;--y:15%">MQTT</span>
+      <span style="--d:3s;--x:70%;--y:70%">Grafana</span>
+      <span style="--d:0.8s;--x:15%;--y:72%">Raspberry Pi</span>
+      <span style="--d:2.2s;--x:88%;--y:42%">Python</span>
+      <span style="--d:4s;--x:5%;--y:48%">InfluxDB</span>
+      <span style="--d:1s;--x:55%;--y:85%">AI / ML</span>
+      <span style="--d:2.5s;--x:42%;--y:10%">Linux</span>
+      <span style="--d:3.5s;--x:25%;--y:88%">Modbus</span>
+    </div>
+
     <div class="hero-content">
-      <p class="hero-greeting">Hi, I'm</p>
-      <h1 class="hero-name">Nimesh Timalsina</h1>
-      <div class="hero-role">
-        <span class="typed-text" id="typed"></span><span class="cursor">|</span>
+      <div class="hero-badge reveal">
+        <span class="badge-dot"></span> Open to opportunities
       </div>
-      <p class="hero-summary">
-        AI undergraduate passionate about bridging the gap between intelligent software and physical systems — building IoT solutions that turn data into action.
+      <p class="hero-greeting reveal">Hi there, I'm</p>
+      <h1 class="hero-name reveal">
+        Nimesh<br><span class="name-gradient">Timalsina</span>
+      </h1>
+      <div class="hero-role reveal">
+        <span class="role-prefix">const role = </span>
+        <span class="typed-text" id="typed"></span>
+        <span class="cursor-blink">_</span>
+      </div>
+      <p class="hero-summary reveal">
+        Building bridges between intelligent software and physical systems —
+        turning raw sensor data into real-world impact through AI and IoT.
       </p>
-      <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">View My Work</a>
-        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      <div class="hero-cta reveal">
+        <a href="#projects" class="btn btn-primary" data-magnetic>
+          <span>View My Work</span>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-glass" data-magnetic>Get In Touch</a>
       </div>
-      <div class="hero-links">
-        <a href="https://github.com/GOGHSY" target="_blank" rel="noopener" aria-label="GitHub">
+      <div class="hero-socials reveal">
+        <a href="https://github.com/GOGHSY" target="_blank" rel="noopener" class="social-link" data-tooltip="GitHub">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
         </a>
-        <a href="https://www.linkedin.com/in/nimesh-timalsina-2495b8266/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/nimesh-timalsina-2495b8266/" target="_blank" rel="noopener" class="social-link" data-tooltip="LinkedIn">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
-        <a href="mailto:nimeshtimalsina0@gmail.com" aria-label="Email">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.910 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+        <a href="mailto:nimeshtimalsina0@gmail.com" class="social-link" data-tooltip="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
         </a>
       </div>
     </div>
-    <div class="scroll-hint">
-      <span>scroll</span>
-      <div class="scroll-line"></div>
+
+    <div class="hero-scroll-indicator">
+      <div class="mouse-icon">
+        <div class="mouse-wheel"></div>
+      </div>
+      <span>scroll to explore</span>
     </div>
   </section>
 
   <!-- About -->
   <section class="section" id="about">
     <div class="container">
-      <h2 class="section-title">About <span class="accent">Me</span></h2>
+      <div class="section-label reveal">01 / About</div>
+      <h2 class="section-title reveal">Who am <span class="gradient-text">I?</span></h2>
+
       <div class="about-grid">
-        <div class="about-text fade-in">
-          <p>
-            I'm an <strong>Artificial Intelligence undergraduate</strong> at Kathmandu University with hands-on experience building IoT systems and embedded solutions. My work spans sensor integration, real-time data pipelines, and automation — turning raw hardware signals into meaningful, actionable intelligence.
-          </p>
-          <p>
-            I've contributed to research at the <strong>University of Nevada, Reno</strong> on water resource monitoring, led robotics events at a 56-volunteer tech conference, and built a full IoT hydroponics system as my semester project.
-          </p>
-          <p>
-            My goal is to sit at the intersection of <strong>AI and physical systems</strong> — building software that makes the real world smarter.
-          </p>
+        <div class="about-code reveal">
+          <div class="code-window">
+            <div class="code-titlebar">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="code-filename">nimesh.json</span>
+            </div>
+            <pre class="code-body"><code><span class="c-brace">{</span>
+  <span class="c-key">"name"</span>: <span class="c-str">"Nimesh Timalsina"</span>,
+  <span class="c-key">"role"</span>: <span class="c-str">"AI & IoT Engineer"</span>,
+  <span class="c-key">"university"</span>: <span class="c-str">"Kathmandu University"</span>,
+  <span class="c-key">"degree"</span>: <span class="c-str">"BTech in AI"</span>,
+  <span class="c-key">"location"</span>: <span class="c-str">"Dhulikhel, Nepal"</span>,
+  <span class="c-key">"focus"</span>: <span class="c-brace">[</span>
+    <span class="c-str">"IoT Systems"</span>,
+    <span class="c-str">"Embedded Tech"</span>,
+    <span class="c-str">"Real-time Data"</span>,
+    <span class="c-str">"AI / ML"</span>
+  <span class="c-brace">]</span>,
+  <span class="c-key">"available"</span>: <span class="c-bool">true</span>
+<span class="c-brace">}</span></code></pre>
+          </div>
         </div>
-        <div class="about-stats fade-in">
-          <div class="stat-card">
-            <span class="stat-number">56</span>
-            <span class="stat-label">Volunteers Led</span>
+
+        <div class="about-right">
+          <div class="about-text reveal">
+            <p>I'm an <strong>Artificial Intelligence undergraduate</strong> with hands-on experience in IoT systems and embedded technologies. I work at the intersection of software intelligence and physical hardware — building systems that sense, analyze, and act.</p>
+            <p>From water-monitoring stations at a US research lab to a full IoT hydroponics platform, my projects are always rooted in <strong>real-world utility</strong>. I'm driven by the idea that data from the physical world should be put to work meaningfully.</p>
           </div>
-          <div class="stat-card">
-            <span class="stat-number">3</span>
-            <span class="stat-label">Major Projects</span>
+
+          <div class="stats-row">
+            <div class="stat-block reveal">
+              <div class="stat-num" data-count="56">0</div>
+              <div class="stat-label">Volunteers Led</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-block reveal">
+              <div class="stat-num" data-count="3">0</div>
+              <div class="stat-label">Major Projects</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-block reveal">
+              <div class="stat-num" data-count="8">0</div>
+              <div class="stat-label">Tech Stack Items</div>
+            </div>
           </div>
-          <div class="stat-card">
-            <span class="stat-number">IoT</span>
-            <span class="stat-label">Core Focus</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-number">AI</span>
-            <span class="stat-label">Degree Track</span>
+
+          <div class="edu-pill reveal">
+            <div class="edu-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+            </div>
+            <div>
+              <div class="edu-name">Kathmandu University, Dhulikhel</div>
+              <div class="edu-deg">BTech in Artificial Intelligence</div>
+              <div class="edu-courses">Advanced ML · Data Mining · Data Science</div>
+            </div>
           </div>
         </div>
       </div>
@@ -102,44 +182,70 @@
   </section>
 
   <!-- Experience -->
-  <section class="section section-alt" id="experience">
+  <section class="section section-dark" id="experience">
     <div class="container">
-      <h2 class="section-title">Work <span class="accent">Experience</span></h2>
+      <div class="section-label reveal">02 / Experience</div>
+      <h2 class="section-title reveal">Where I've <span class="gradient-text">Worked</span></h2>
       <div class="timeline">
 
-        <div class="timeline-item fade-in">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <div>
-                <h3 class="timeline-role">IoT Research Assistant</h3>
-                <p class="timeline-org">University of Nevada, Reno — Water Resource Engineering Lab</p>
-              </div>
-              <span class="timeline-badge">Research</span>
+        <div class="tl-item reveal">
+          <div class="tl-left">
+            <div class="tl-badge">Research</div>
+            <div class="tl-dot-wrap">
+              <div class="tl-dot"></div>
+              <div class="tl-line"></div>
             </div>
-            <ul class="timeline-bullets">
-              <li>Assisted in developing IoT-based systems for water monitoring and resource management</li>
-              <li>Worked with sensors and microcontrollers to collect real-time environmental data</li>
-              <li>Supported device setup, testing, and troubleshooting in lab environments</li>
-              <li>Contributed to data collection and system performance evaluation</li>
+          </div>
+          <div class="tl-card glass-card" data-tilt>
+            <div class="tl-card-glow"></div>
+            <div class="tl-header">
+              <div>
+                <h3 class="tl-role">IoT Research Assistant</h3>
+                <p class="tl-org">University of Nevada, Reno</p>
+                <p class="tl-dept">Water Resource Engineering Lab</p>
+              </div>
+              <div class="tl-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+              </div>
+            </div>
+            <ul class="tl-bullets">
+              <li>Developed IoT-based systems for water monitoring and resource management</li>
+              <li>Integrated sensors and microcontrollers for real-time environmental data collection</li>
+              <li>Supported device setup, testing, and troubleshooting in field lab environments</li>
+              <li>Contributed to data collection workflows and system performance evaluation</li>
             </ul>
+            <div class="tl-tags">
+              <span>IoT</span><span>Sensors</span><span>Data Analysis</span><span>Microcontrollers</span>
+            </div>
           </div>
         </div>
 
-        <div class="timeline-item fade-in">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <div>
-                <h3 class="timeline-role">Technical Coordinator / Robotics Lead</h3>
-                <p class="timeline-org">AI CONCLAVE &amp; Convergence</p>
-              </div>
-              <span class="timeline-badge">Jan 2026</span>
+        <div class="tl-item reveal">
+          <div class="tl-left">
+            <div class="tl-badge">Jan 2026</div>
+            <div class="tl-dot-wrap">
+              <div class="tl-dot tl-dot-purple"></div>
             </div>
-            <ul class="timeline-bullets">
-              <li>Managed logistics and task delegation for a team of <strong>56 volunteers</strong> over a three-day tech event</li>
-              <li>Coordinated and oversaw all Robotics Events end-to-end</li>
+          </div>
+          <div class="tl-card glass-card" data-tilt>
+            <div class="tl-card-glow glow-purple"></div>
+            <div class="tl-header">
+              <div>
+                <h3 class="tl-role">Technical Coordinator &amp; Robotics Lead</h3>
+                <p class="tl-org">AI CONCLAVE &amp; Convergence</p>
+                <p class="tl-dept">Three-Day National Tech Event</p>
+              </div>
+              <div class="tl-icon tl-icon-purple">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </div>
+            </div>
+            <ul class="tl-bullets">
+              <li>Managed logistics and task delegation for <strong class="highlight">56 volunteers</strong> across a 3-day event</li>
+              <li>Led end-to-end coordination of all Robotics Events and competitions</li>
             </ul>
+            <div class="tl-tags">
+              <span class="tag-purple">Leadership</span><span class="tag-purple">Robotics</span><span class="tag-purple">Event Mgmt</span>
+            </div>
           </div>
         </div>
 
@@ -150,55 +256,113 @@
   <!-- Projects -->
   <section class="section" id="projects">
     <div class="container">
-      <h2 class="section-title">Featured <span class="accent">Projects</span></h2>
-      <div class="projects-grid">
+      <div class="section-label reveal">03 / Projects</div>
+      <h2 class="section-title reveal">Things I've <span class="gradient-text">Built</span></h2>
 
-        <div class="project-card fade-in">
-          <div class="project-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1M4.22 4.22l.707.707m12.728 12.728.707.707M1 12h1m20 0h1M4.22 19.78l.707-.707M18.95 5.636l.707-.707M9 12a3 3 0 106 0 3 3 0 00-6 0z"/></svg>
-          </div>
-          <div class="project-content">
-            <span class="project-tag">6th Semester · IoT · AI</span>
-            <h3 class="project-title">Hydroponics AI System</h3>
-            <p class="project-desc">
-              An end-to-end IoT-enabled hydroponics platform for automated plant growth monitoring. Integrates multiple environmental sensors with a real-time dashboard for precision agriculture.
+      <div class="projects-layout">
+
+        <!-- Featured project -->
+        <div class="project-featured reveal glass-card" data-tilt>
+          <div class="project-featured-glow"></div>
+          <div class="project-featured-content">
+            <div class="project-number">01</div>
+            <div class="project-meta-row">
+              <span class="project-type">Featured Project · 6th Semester</span>
+              <div class="project-links">
+                <a href="https://github.com/GOGHSY" target="_blank" rel="noopener" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-featured-title">Hydroponics AI System</h3>
+            <p class="project-featured-desc">
+              An end-to-end IoT platform for automated plant growth monitoring. Sensors feed real-time environmental data into a dashboard — enabling precision agriculture through data-driven automation.
             </p>
-            <ul class="project-highlights">
-              <li>pH, temperature &amp; water-level sensor fusion via microcontrollers</li>
-              <li>Real-time monitoring dashboard for environmental parameters</li>
-              <li>Automated plant growth control loop</li>
-            </ul>
-            <div class="project-tech">
+            <div class="project-featured-points">
+              <div class="fp-item">
+                <div class="fp-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                <span>Real-time pH, temperature &amp; water-level sensor fusion</span>
+              </div>
+              <div class="fp-item">
+                <div class="fp-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                </div>
+                <span>Live monitoring dashboard with Grafana + InfluxDB</span>
+              </div>
+              <div class="fp-item">
+                <div class="fp-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M5.34 18.66l-1.41 1.41M20 12H22M2 12H4M19.07 19.07l-1.41-1.41M5.34 5.34L3.93 3.93M12 20V22M12 2V4"/></svg>
+                </div>
+                <span>Automated plant growth control loop</span>
+              </div>
+            </div>
+            <div class="project-stack">
               <span>Raspberry Pi</span>
               <span>MQTT</span>
               <span>InfluxDB</span>
               <span>Grafana</span>
               <span>Python</span>
+              <span>Modbus</span>
+            </div>
+          </div>
+          <div class="project-featured-visual">
+            <div class="project-visual-inner">
+              <div class="visual-screen">
+                <div class="vs-header">
+                  <div class="vs-dots"><span></span><span></span><span></span></div>
+                  <span class="vs-title">hydroponics.dashboard</span>
+                </div>
+                <div class="vs-body">
+                  <div class="vs-metric">
+                    <span class="vs-label">pH Level</span>
+                    <span class="vs-value cyan">6.8</span>
+                  </div>
+                  <div class="vs-bar-wrap"><div class="vs-bar" style="--w:68%;--c:#22d3ee"></div></div>
+                  <div class="vs-metric">
+                    <span class="vs-label">Temp (°C)</span>
+                    <span class="vs-value purple">24.2</span>
+                  </div>
+                  <div class="vs-bar-wrap"><div class="vs-bar" style="--w:55%;--c:#a78bfa"></div></div>
+                  <div class="vs-metric">
+                    <span class="vs-label">Water Level</span>
+                    <span class="vs-value pink">82%</span>
+                  </div>
+                  <div class="vs-bar-wrap"><div class="vs-bar" style="--w:82%;--c:#f472b6"></div></div>
+                  <div class="vs-sparkline">
+                    <svg viewBox="0 0 120 40" preserveAspectRatio="none">
+                      <polyline points="0,35 15,28 30,32 45,20 60,24 75,15 90,18 105,10 120,12" fill="none" stroke="url(#spark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <defs>
+                        <linearGradient id="spark" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" stop-color="#22d3ee"/>
+                          <stop offset="100%" stop-color="#a78bfa"/>
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </div>
+                  <div class="vs-status">
+                    <span class="status-dot blink"></span> System Active
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="project-card fade-in">
-          <div class="project-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-          </div>
-          <div class="project-content">
-            <span class="project-tag">Research · IoT · Water</span>
-            <h3 class="project-title">Water Resource IoT Monitoring</h3>
-            <p class="project-desc">
-              Contributed to an academic IoT system for water monitoring and resource management at the University of Nevada, Reno's Water Resource Engineering Lab.
-            </p>
-            <ul class="project-highlights">
-              <li>Real-time environmental data collection pipeline</li>
-              <li>Sensor &amp; microcontroller integration for field deployment</li>
-              <li>System performance evaluation and troubleshooting</li>
-            </ul>
-            <div class="project-tech">
-              <span>Modbus/RS485</span>
-              <span>Sensors</span>
-              <span>Linux</span>
-              <span>Data Analysis</span>
-            </div>
+        <!-- Secondary project -->
+        <div class="project-secondary reveal glass-card" data-tilt>
+          <div class="project-number">02</div>
+          <span class="project-type">Research Project</span>
+          <h3 class="project-sec-title">Water Resource IoT Monitoring</h3>
+          <p class="project-sec-desc">Contributed to an academic IoT system at the University of Nevada, Reno — building real-time water monitoring pipelines with field sensors and microcontrollers.</p>
+          <ul class="project-sec-points">
+            <li>Real-time environmental data collection pipeline</li>
+            <li>Multi-sensor integration for field deployment</li>
+            <li>Performance evaluation and diagnostics</li>
+          </ul>
+          <div class="project-stack">
+            <span>Modbus/RS485</span><span>Linux</span><span>Sensors</span><span>Data Analysis</span>
           </div>
         </div>
 
@@ -207,114 +371,102 @@
   </section>
 
   <!-- Skills -->
-  <section class="section section-alt" id="skills">
+  <section class="section section-dark" id="skills">
     <div class="container">
-      <h2 class="section-title">Skills &amp; <span class="accent">Tech Stack</span></h2>
-      <div class="skills-grid">
+      <div class="section-label reveal">04 / Skills</div>
+      <h2 class="section-title reveal">My <span class="gradient-text">Toolkit</span></h2>
 
-        <div class="skill-group fade-in">
-          <div class="skill-group-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z"/></svg>
+      <div class="skills-bento">
+
+        <div class="skill-tile tile-wide reveal glass-card" data-tilt>
+          <div class="tile-header">
+            <div class="tile-icon cyan-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z"/></svg>
+            </div>
+            <h3>IoT &amp; Data</h3>
           </div>
-          <h3 class="skill-group-title">IoT &amp; Data</h3>
-          <div class="skill-tags">
-            <span>Modbus/RS485</span>
-            <span>MQTT</span>
-            <span>InfluxDB</span>
-            <span>Grafana</span>
-            <span>Solenoid Control</span>
-            <span>pH Sensors</span>
-            <span>Flowmeters</span>
-            <span>Sensor Integration</span>
+          <div class="skill-chips">
+            <span class="chip chip-cyan">Modbus/RS485</span>
+            <span class="chip chip-cyan">MQTT</span>
+            <span class="chip chip-cyan">InfluxDB</span>
+            <span class="chip chip-cyan">Grafana</span>
+            <span class="chip chip-cyan">Solenoid Control</span>
+            <span class="chip chip-cyan">pH Sensors</span>
+            <span class="chip chip-cyan">Flowmeters</span>
+            <span class="chip chip-cyan">Sensor Integration</span>
           </div>
         </div>
 
-        <div class="skill-group fade-in">
-          <div class="skill-group-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3"/></svg>
+        <div class="skill-tile reveal glass-card" data-tilt>
+          <div class="tile-header">
+            <div class="tile-icon purple-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3"/></svg>
+            </div>
+            <h3>Platforms</h3>
           </div>
-          <h3 class="skill-group-title">Platforms &amp; Tools</h3>
-          <div class="skill-tags">
-            <span>Raspberry Pi</span>
-            <span>Linux</span>
-            <span>Microcontrollers</span>
-            <span>Embedded Systems</span>
+          <div class="skill-chips">
+            <span class="chip chip-purple">Raspberry Pi</span>
+            <span class="chip chip-purple">Linux</span>
+            <span class="chip chip-purple">Microcontrollers</span>
+            <span class="chip chip-purple">Embedded Systems</span>
           </div>
         </div>
 
-        <div class="skill-group fade-in">
-          <div class="skill-group-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg>
+        <div class="skill-tile reveal glass-card" data-tilt>
+          <div class="tile-header">
+            <div class="tile-icon pink-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg>
+            </div>
+            <h3>AI &amp; Data Science</h3>
           </div>
-          <h3 class="skill-group-title">AI &amp; Data Science</h3>
-          <div class="skill-tags">
-            <span>Machine Learning</span>
-            <span>Data Mining</span>
-            <span>Data Science</span>
-            <span>Data Analysis</span>
-            <span>Automation</span>
+          <div class="skill-chips">
+            <span class="chip chip-pink">Machine Learning</span>
+            <span class="chip chip-pink">Data Mining</span>
+            <span class="chip chip-pink">Data Science</span>
+            <span class="chip chip-pink">Automation</span>
           </div>
         </div>
 
       </div>
-
-      <!-- Education card inside skills section -->
-      <div class="edu-card fade-in">
-        <div class="edu-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg>
-        </div>
-        <div class="edu-content">
-          <h3>Kathmandu University, Dhulikhel</h3>
-          <p class="edu-degree">BTech in Artificial Intelligence</p>
-          <p class="edu-courses"><strong>Relevant Coursework:</strong> Advanced Machine Learning · Data Mining · Data Science</p>
-        </div>
-      </div>
-
     </div>
   </section>
 
   <!-- Contact -->
   <section class="section" id="contact">
     <div class="container">
-      <h2 class="section-title">Get In <span class="accent">Touch</span></h2>
-      <p class="contact-intro">
-        I'm always open to discussing new opportunities, research collaborations, or just talking tech. Feel free to reach out!
+      <div class="section-label reveal">05 / Contact</div>
+      <h2 class="section-title reveal">Let's <span class="gradient-text">Connect</span></h2>
+      <p class="contact-intro reveal">
+        Whether it's a research collaboration, an exciting project, or just a conversation about AI and IoT — my inbox is always open.
       </p>
-      <div class="contact-grid">
-        <a href="mailto:nimeshtimalsina0@gmail.com" class="contact-card fade-in">
-          <div class="contact-card-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.910 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+
+      <div class="contact-layout">
+        <a href="mailto:nimeshtimalsina0@gmail.com" class="contact-main reveal glass-card" data-tilt>
+          <div class="contact-main-glow"></div>
+          <div class="contact-main-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
           </div>
-          <div>
-            <p class="contact-label">Email</p>
-            <p class="contact-value">nimeshtimalsina0@gmail.com</p>
+          <div class="contact-main-text">
+            <p class="contact-main-label">Say Hello</p>
+            <p class="contact-main-email">nimeshtimalsina0@gmail.com</p>
+          </div>
+          <div class="contact-main-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </div>
         </a>
-        <a href="https://github.com/GOGHSY" target="_blank" rel="noopener" class="contact-card fade-in">
-          <div class="contact-card-icon">
+
+        <div class="contact-side">
+          <a href="https://github.com/GOGHSY" target="_blank" rel="noopener" class="contact-chip reveal glass-card">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          </div>
-          <div>
-            <p class="contact-label">GitHub</p>
-            <p class="contact-value">github.com/GOGHSY</p>
-          </div>
-        </a>
-        <a href="https://www.linkedin.com/in/nimesh-timalsina-2495b8266/" target="_blank" rel="noopener" class="contact-card fade-in">
-          <div class="contact-card-icon">
+            <span>github.com/GOGHSY</span>
+          </a>
+          <a href="https://www.linkedin.com/in/nimesh-timalsina-2495b8266/" target="_blank" rel="noopener" class="contact-chip reveal glass-card">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </div>
-          <div>
-            <p class="contact-label">LinkedIn</p>
-            <p class="contact-value">nimesh-timalsina-2495b8266</p>
-          </div>
-        </a>
-        <div class="contact-card fade-in non-link">
-          <div class="contact-card-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          </div>
-          <div>
-            <p class="contact-label">Phone</p>
-            <p class="contact-value">+977 9843969474</p>
+            <span>LinkedIn Profile</span>
+          </a>
+          <div class="contact-chip contact-chip-static reveal glass-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <span>+977 9843969474</span>
           </div>
         </div>
       </div>
@@ -323,8 +475,9 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      <p>Designed &amp; built by <strong>Nimesh Timalsina</strong></p>
+    <div class="footer-inner">
+      <div class="footer-logo">NT<span class="footer-dot">.</span></div>
+      <p>Designed &amp; built by <span class="footer-name">Nimesh Timalsina</span></p>
       <p class="footer-sub">AI &amp; IoT Engineer · Kathmandu University</p>
     </div>
   </footer>
