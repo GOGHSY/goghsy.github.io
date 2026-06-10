@@ -15,6 +15,8 @@
   /* Accent colours */
   --gold:      #c8a96a;
   --gold-2:    #e3c88a;
+  --red:       #c0392b;
+  --red-2:     #d95045;
   --rose:      #c4796a;
   --sage:      #7aaa8e;
 
@@ -101,7 +103,7 @@ em   { font-style: italic; }
   color: var(--text);
 }
 
-.logo-dot { color: var(--gold); }
+.logo-dot { color: var(--red); }
 
 .nav-links {
   display: flex;
@@ -194,7 +196,7 @@ em   { font-style: italic; }
   display: block;
   width: 28px;
   height: 1px;
-  background: var(--gold);
+  background: var(--red);
 }
 
 .hero-name {
@@ -209,7 +211,7 @@ em   { font-style: italic; }
 
 .hero-name-italic {
   font-style: italic;
-  color: var(--gold);
+  color: var(--red);
   font-weight: 300;
 }
 
@@ -645,6 +647,23 @@ em   { font-style: italic; }
   border-color: rgba(196,121,106,0.18);
 }
 
+.pills-red span {
+  color: var(--red-2);
+  background: rgba(192,57,43,0.08);
+  border-color: rgba(192,57,43,0.2);
+}
+
+/* Red accent card top line */
+.exp-card.card-red::before {
+  background: linear-gradient(90deg, var(--red), transparent) !important;
+}
+
+/* Red eyebrow */
+.eyebrow-red { color: var(--red) !important; }
+
+/* Red highlight dot */
+.hl-dot.dot-red { background: var(--red); }
+
 /* ══════════════════════════════════════════════
    PROJECTS
 ══════════════════════════════════════════════ */
@@ -850,14 +869,20 @@ em   { font-style: italic; }
 /* ══════════════════════════════════════════════
    CONTACT
 ══════════════════════════════════════════════ */
-.contact-center { text-align: center; max-width: 600px; margin: 0 auto; }
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contact-info .section-head { margin-bottom: 2rem; }
 
 .contact-sub {
   font-size: var(--fs-body);
   color: var(--text-2);
   line-height: 1.85;
-  margin-top: 1.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .contact-cta {
@@ -865,7 +890,7 @@ em   { font-style: italic; }
   align-items: center;
   gap: 0.75rem;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 400;
   color: var(--text);
   border-bottom: 1px solid var(--border-2);
@@ -876,38 +901,128 @@ em   { font-style: italic; }
 }
 
 .contact-cta svg {
-  width: 20px; height: 20px;
-  color: var(--gold);
+  width: 18px; height: 18px;
+  color: var(--red);
   transition: transform 0.25s var(--ease-spring);
 }
 
-.contact-cta:hover {
-  color: var(--gold);
-  border-color: var(--gold);
-}
-
+.contact-cta:hover { color: var(--red); border-color: var(--red); }
 .contact-cta:hover svg { transform: translateX(4px); }
 
 .contact-links {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   gap: 0.75rem;
-  flex-wrap: wrap;
 }
 
 .clink {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.5rem;
   font-size: var(--fs-sm);
   color: var(--text-2);
   transition: color 0.2s var(--ease);
 }
 
-.clink:hover { color: var(--gold); }
+.clink:hover { color: var(--red); }
 .clink svg   { width: 10px; height: 10px; opacity: 0.7; }
-.clink-sep   { color: var(--text-3); }
+.clink-sep   { color: var(--text-3); font-size: var(--fs-xs); }
+
+/* ── Contact Form ── */
+.contact-form-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  transition: border-color 0.3s var(--ease);
+}
+
+.contact-form-wrap:focus-within {
+  border-color: rgba(192,57,43,0.3);
+}
+
+.cf-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 1.75rem;
+}
+
+.cf-group {
+  margin-bottom: 1.25rem;
+}
+
+.cf-label {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: var(--fs-xs);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 0.5rem;
+}
+
+.cf-input {
+  width: 100%;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-sm);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s var(--ease), background 0.2s;
+  resize: none;
+}
+
+.cf-input::placeholder { color: var(--text-3); }
+
+.cf-input:focus {
+  border-color: rgba(192,57,43,0.5);
+  background: var(--bg-warm);
+}
+
+.cf-textarea { height: 120px; line-height: 1.7; }
+
+.cf-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  justify-content: center;
+  padding: 0.85rem 1.75rem;
+  background: var(--red);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: background 0.25s var(--ease), transform 0.2s var(--ease-spring);
+  margin-top: 0.5rem;
+}
+
+.cf-submit svg { width: 16px; height: 16px; transition: transform 0.25s var(--ease-spring); }
+.cf-submit:hover { background: var(--red-2); transform: translateY(-2px); }
+.cf-submit:hover svg { transform: translateX(3px); }
+
+.cf-success {
+  display: none;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  font-size: var(--fs-sm);
+  color: var(--sage);
+  font-family: 'Space Grotesk', sans-serif;
+  animation: fadeInUp 0.4s var(--ease-out) both;
+}
+
+.cf-success.show { display: flex; }
+.cf-success svg  { width: 18px; height: 18px; flex-shrink: 0; }
 
 /* ══════════════════════════════════════════════
    FOOTER
@@ -938,7 +1053,7 @@ em   { font-style: italic; }
   color: var(--text-3);
 }
 
-.f-dot { color: var(--gold); }
+.f-dot { color: var(--red); }
 
 /* ══════════════════════════════════════════════
    RESPONSIVE
@@ -951,6 +1066,7 @@ em   { font-style: italic; }
   .projects          { grid-template-columns: 1fr; }
   .proj-featured     { grid-column: 1; grid-template-columns: 1fr; }
   .skills-layout     { grid-template-columns: 1fr 1fr; }
+  .contact-layout    { grid-template-columns: 1fr; gap: 3rem; }
 }
 
 @media (max-width: 640px) {

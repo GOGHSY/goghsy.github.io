@@ -153,7 +153,7 @@
 
       <div class="exp-grid">
 
-        <div class="exp-card reveal-up">
+        <div class="exp-card card-red reveal-up">
           <div class="exp-num">01</div>
           <div class="exp-body">
             <span class="exp-tag">Research Lab</span>
@@ -166,7 +166,7 @@
               <li>Supported device setup, testing, and field troubleshooting</li>
               <li>Contributed to data collection and system performance evaluation</li>
             </ul>
-            <div class="exp-pills">
+            <div class="exp-pills pills-red">
               <span>IoT</span><span>Sensors</span><span>Microcontrollers</span><span>Data Analysis</span>
             </div>
           </div>
@@ -197,7 +197,7 @@
   <section class="section" id="projects">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow reveal-up">Projects</span>
+        <span class="eyebrow eyebrow-red reveal-up">Projects</span>
         <h2 class="sec-h reveal-up">Things I've<br><em>built</em></h2>
       </div>
 
@@ -217,15 +217,15 @@
           </p>
           <div class="proj-highlights">
             <div class="proj-hl">
-              <span class="hl-dot"></span>
+              <span class="hl-dot dot-red"></span>
               pH, temperature &amp; water-level sensor fusion via microcontrollers
             </div>
             <div class="proj-hl">
-              <span class="hl-dot"></span>
+              <span class="hl-dot dot-red"></span>
               Live monitoring dashboard built on Grafana + InfluxDB
             </div>
             <div class="proj-hl">
-              <span class="hl-dot"></span>
+              <span class="hl-dot dot-red"></span>
               Automated plant-growth control loop over MQTT
             </div>
           </div>
@@ -304,31 +304,61 @@
   <!-- ─────────────────────────── CONTACT ─────────────────────────── -->
   <section class="section" id="contact">
     <div class="wrap">
-      <div class="contact-center">
-        <span class="eyebrow reveal-up">Contact</span>
-        <h2 class="sec-h sec-h-center reveal-up">Let's work<br><em>together</em></h2>
-        <p class="contact-sub reveal-up">
-          Whether it's a research collaboration, a project opportunity, or just a conversation about AI and IoT — reach out. I'd love to connect.
-        </p>
+      <div class="contact-layout">
 
-        <a href="mailto:nimeshtimalsina0@gmail.com" class="contact-cta reveal-up">
-          <span>nimeshtimalsina0@gmail.com</span>
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
-        </a>
-
-        <div class="contact-links reveal-up">
-          <a href="https://github.com/GOGHSY" target="_blank" rel="noopener" class="clink">
-            GitHub
-            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        <!-- Left: info -->
+        <div class="contact-info">
+          <div class="section-head">
+            <span class="eyebrow eyebrow-red reveal-up">Contact</span>
+            <h2 class="sec-h reveal-up">Let's work<br><em>together</em></h2>
+          </div>
+          <p class="contact-sub reveal-up">
+            Whether it's a research collaboration, a project opportunity, or just a conversation about AI and IoT — reach out. I'd love to connect.
+          </p>
+          <a href="mailto:nimeshtimalsina0@gmail.com" class="contact-cta reveal-up">
+            <span>nimeshtimalsina0@gmail.com</span>
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
           </a>
-          <span class="clink-sep">·</span>
-          <a href="https://www.linkedin.com/in/nimesh-timalsina-2495b8266/" target="_blank" rel="noopener" class="clink">
-            LinkedIn
-            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M4 2h6v6"/></svg>
-          </a>
-          <span class="clink-sep">·</span>
-          <span class="clink">+977 9843969474</span>
+          <div class="contact-links reveal-up">
+            <a href="https://github.com/GOGHSY" target="_blank" rel="noopener" class="clink">
+              GitHub
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M4 2h6v6"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/nimesh-timalsina-2495b8266/" target="_blank" rel="noopener" class="clink">
+              LinkedIn
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M4 2h6v6"/></svg>
+            </a>
+            <span class="clink">+977 9843969474</span>
+          </div>
         </div>
+
+        <!-- Right: contact form -->
+        <div class="contact-form-wrap reveal-up">
+          <p class="cf-title">Send a message</p>
+          <form id="contactForm" novalidate>
+            <div class="cf-group">
+              <label for="fname" class="cf-label">Your name</label>
+              <input type="text" id="fname" class="cf-input" placeholder="John Doe" required />
+            </div>
+            <div class="cf-group">
+              <label for="femail" class="cf-label">Your email</label>
+              <input type="email" id="femail" class="cf-input" placeholder="you@example.com" required />
+            </div>
+            <div class="cf-group">
+              <label for="fmsg" class="cf-label">Message</label>
+              <textarea id="fmsg" class="cf-input cf-textarea" placeholder="Tell me about your project or idea…" required></textarea>
+            </div>
+            <button type="submit" class="cf-submit">
+              Send message
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+            </button>
+            <div class="cf-success" id="cfSuccess" role="alert">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 10l4 4 6-7"/><circle cx="10" cy="10" r="8"/></svg>
+              Message sent! I'll be in touch soon.
+            </div>
+          </form>
+        </div>
+
       </div>
     </div>
   </section>
