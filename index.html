@@ -157,7 +157,7 @@
               <div class="stat-l">Volunteers led</div>
             </div>
             <div class="stat">
-              <div class="stat-n" data-count="3">0</div>
+              <div class="stat-n" data-count="4">0</div>
               <div class="stat-l">Major projects</div>
             </div>
             <div class="stat">
@@ -283,6 +283,42 @@
           </div>
         </div>
 
+        <div class="proj-card reveal-up">
+          <div class="proj-top">
+            <div class="proj-index">03</div>
+            <span class="proj-badge">Research</span>
+          </div>
+          <h3 class="proj-title">Nepal Landslide Susceptibility GNN</h3>
+          <p class="proj-desc">
+            A graph neural network (GraphSAGE + GAT) that predicts landslide risk across Nepal at ~550&nbsp;m resolution. Each grid cell becomes a node, linked to its neighbours and along downslope flow paths, and the model is trained on 4,989 verified events from the BIPAD inventory using DEM, rainfall, land-use and fault-distance features.
+          </p>
+          <div class="proj-stack">
+            <span>PyTorch Geometric</span><span>GNN</span><span>GIS</span><span>CHIRPS</span><span>Copernicus DEM</span>
+          </div>
+          <a href="https://github.com/GOGHSY/gis_landslide" target="_blank" rel="noopener" class="proj-link">
+            View on GitHub
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M4 2h6v6"/></svg>
+          </a>
+        </div>
+
+        <div class="proj-card reveal-up">
+          <div class="proj-top">
+            <div class="proj-index">04</div>
+            <span class="proj-badge">Computer Vision</span>
+          </div>
+          <h3 class="proj-title">Class-Agnostic Detection Demo</h3>
+          <p class="proj-desc">
+            The end-to-end integration for the PS-1 retail detection project. It takes a raw image, generates class-agnostic proposals with MobileSAM, estimates depth with Depth Anything V2, and classifies each object's geometry (cuboid, cylindrical, flat or irregular). The results show up in an interactive Gradio app next to a YOLOv8 baseline.
+          </p>
+          <div class="proj-stack">
+            <span>MobileSAM</span><span>Depth Anything V2</span><span>PyTorch</span><span>Gradio</span><span>YOLOv8</span>
+          </div>
+          <a href="https://github.com/GOGHSY/system-integration-demo" target="_blank" rel="noopener" class="proj-link">
+            View on GitHub
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M4 2h6v6"/></svg>
+          </a>
+        </div>
+
       </div>
     </div>
   </section>
@@ -327,6 +363,9 @@
             <span>Machine Learning</span>
             <span>Data Mining</span>
             <span>Data Science</span>
+            <span>Graph Neural Networks</span>
+            <span>PyTorch Geometric</span>
+            <span>Geospatial / GIS</span>
             <span>Automation</span>
           </div>
         </div>
@@ -336,6 +375,9 @@
           <div class="sg-list">
             <span>YOLO-NAS</span>
             <span>MiDaS Depth Estimation</span>
+            <span>Depth Anything V2</span>
+            <span>MobileSAM</span>
+            <span>Gradio</span>
             <span>PyTorch</span>
             <span>TensorRT</span>
             <span>Synthetic Data Generation</span>

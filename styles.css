@@ -791,6 +791,21 @@ em   { font-style: italic; }
   background: rgba(200,169,106,0.05);
 }
 
+.proj-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.25rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.78rem;
+  color: var(--gold);
+  text-decoration: none;
+  transition: gap 0.2s var(--ease);
+}
+
+.proj-link svg { width: 11px; height: 11px; }
+.proj-link:hover { gap: 0.6rem; }
+
 /* Project card right side — elegant visual block */
 .proj-featured .proj-visual {
   height: 100%;
